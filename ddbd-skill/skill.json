@@ -1,0 +1,12 @@
+{
+  "name": "ddbd",
+  "description": "领域驱动业务设计",
+  "version": "1.0.0",
+  "author": "cyan",
+  "categories": ["development", "coding", "backend"],
+  "license": "MIT",
+  "skill": {
+    "file": "skill.md",
+    "description": "以领域为基石,业务为导向的标准化开发模式"
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "name": "backend-coding-master",
+  "description": "专注后端开发,毕业5年,10年工作经验.",
+  "version": "1.0.0",
+  "author": "cyan",
+  "categories": ["development", "coding", "backend"],
+  "license": "MIT",
+  "tools": ["./tools"],
+  "skill": {
+    "file": "skill.md",
+    "description": "让 Claude 成为你的专属全职程序员，自动读写文件、自动调试、自动生成高质量代码"
+  }
+}
