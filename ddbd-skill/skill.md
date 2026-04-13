@@ -114,6 +114,7 @@ Assert.notEmpty(list, new BizException("列表不能为空"))
 - Domain 层 id 统一使用 String 类型
 - DO 层 id 与数据库保持一致（如 bigint → Long）
 - 原因：前端 JS 对超过安全整数范围（2^53）的 Long 值会精度丢失，转 String 避免
+- 在JAVA中枚举类型可以直接映射Mybatis plus的varchar,所以我会在DO中直接声明枚举属性而不是做字符串类型的转换
 
 ### 4. 充血模型
 不要写领域服务，把领域方法写在领域对象里来保持充血模型：
@@ -232,6 +233,7 @@ UserDO {
     Long departmentId  // bigint → Long
     Long accountId     // bigint → Long
     Long jobId         // bigint → Long
+    UserStatus status  // varchar → enum
 }
 
 // ==================== Adapter 层 ====================
