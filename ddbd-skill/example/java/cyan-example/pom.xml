@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.cyan</groupId>
+    <artifactId>cyan-example</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <packaging>pom</packaging>
+    <modules>
+        <module>cyan-example-application</module>
+        <module>cyan-example-client</module>
+    </modules>
+
+    <properties>
+        <maven.compiler.source>21</maven.compiler.source>
+        <maven.compiler.target>21</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <arch.version>1.0-SNAPSHOT</arch.version>
+        <cyan-employee-login.version>1.0-SNAPSHOT</cyan-employee-login.version>
+        <lombok.version>1.18.42</lombok.version>
+        <!-- 数据库 -->
+        <mybatis-plus.version>3.5.7</mybatis-plus.version>
+        <mysql-connector.version>8.3.0</mysql-connector.version>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>com.cyan</groupId>
+                <artifactId>arch</artifactId>
+                <version>${arch.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>com.cyan</groupId>
+                <artifactId>cyan-example-client</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.cyan</groupId>
+                <artifactId>cyan-employee-login</artifactId>
+                <version>${cyan-employee-login.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <version>${lombok.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-spring-boot3-starter</artifactId>
+                <version>${mybatis-plus.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.8.1</version> <!-- 适配你的JDK版本，无需严格一致 -->
+                <configuration>
+                    <source>21</source>
+                    <target>21</target>
+                    <compilerArgs>
+                        <arg>-parameters</arg> <!-- 关键：保留参数名反射信息 -->
+                    </compilerArgs>
+                </configuration>
+            </plugin>
+
+            <!-- 打包源代码（含注释） -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-source-plugin</artifactId>
+                <version>3.3.0</version> <!-- 推荐最新稳定版 -->
+                <executions>
+                    <execution>
+                        <id>attach-sources</id>
+                        <goals>
+                            <goal>jar-no-fork</goal> <!-- 不触发额外编译，直接打包源码 -->
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
+
+    <!-- 核心：添加部署仓库配置 -->
+    <distributionManagement>
+        <!-- 正式版仓库（对应Nexus的maven-releases） -->
+        <repository>
+            <id>maven-releases</id>
+            <name>Nexus Releases Repository</name>
+            <url>http://nexus.cyan.com/repository/maven-releases/</url>
+        </repository>
+        <!-- 快照版仓库（对应Nexus的maven-snapshots） -->
+        <snapshotRepository>
+            <id>maven-snapshots</id>
+            <name>Nexus Snapshots Repository</name>
+            <url>http://nexus.cyan.com/repository/maven-snapshots/</url>
+        </snapshotRepository>
+    </distributionManagement>
+</project>
