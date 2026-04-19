@@ -21,4 +21,4 @@ spring:
     driver-class-name: com.mysql.cj.jdbc.Driver
     username: root
     password: 123456
-    url: jdbc:mysql://10.0.0.2:3306/cyan_dataman
+    url: jdbc:mysql://10.0.0.2:3306/cyan_example
