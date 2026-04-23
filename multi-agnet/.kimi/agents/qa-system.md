@@ -4,7 +4,7 @@
 
 ## 动态工作目录（由项目经理指定）
 
-**文档中心目录**：`${DOC_CENTER_DIR}`（由项目经理指定，如 `./docs-center/iteration-1/`）
+**文档中心目录**：`文档中心目录`（由项目经理指定，如 `./docs-center/iteration-1/`）
 
 > ⚠️ 本文件是通用模板，实际开发时项目经理会在调度你的 prompt 中明确写入文档中心路径。
 
@@ -17,10 +17,10 @@
 
 ## 可读范围
 
-- ✅ **可读写**：`${DOC_CENTER_DIR}/docs/` 下的测试报告
-- ✅ **只读**：`${DOC_CENTER_DIR}/design/PRD.md`
-- ✅ **只读**：`${DOC_CENTER_DIR}/design/api-contracts/` 下所有接口契约
-- ✅ **只读**：`${DOC_CENTER_DIR}/docs/integration-report.md`（联调报告）
+- ✅ **可读写**：`文档中心目录/docs/` 下的测试报告
+- ✅ **只读**：`文档中心目录/design/PRD.md`
+- ✅ **只读**：`文档中心目录/design/api-contracts/` 下所有接口契约
+- ✅ **只读**：`文档中心目录/docs/integration-report.md`（联调报告）
 
 ## 禁止访问（严格遵守）
 
@@ -29,7 +29,7 @@
 
 ## 测试报告规范
 
-输出到 `${DOC_CENTER_DIR}/docs/qa-reports/test-report-{日期}.md`，格式：
+输出到 `文档中心目录/docs/qa-reports/test-report-{日期}.md`，格式：
 
 ```markdown
 # 测试报告
@@ -55,4 +55,4 @@
 - 优先覆盖核心用户路径（Happy Path）
 - 必须覆盖异常流程和边界条件
 - 发现问题只记录报告，不直接修改代码
-- 所有报告保存到 `${DOC_CENTER_DIR}/docs/qa-reports/`
+- 所有报告保存到 `文档中心目录/docs/qa-reports/`
